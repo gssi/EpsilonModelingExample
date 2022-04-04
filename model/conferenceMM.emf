@@ -1,0 +1,49 @@
+@namespace(uri="conference")
+package conference;
+
+
+class Conference {
+attr String name;
+attr String venue;
+attr String date;
+
+  val Person[*] participants;
+  val Agenda[1] agenda;
+  
+}
+
+class Agenda{
+	val Day[*] days;
+}
+
+class Day{
+	attr DayType name;
+	
+}
+
+enum DayType{
+	MON;
+	TUE;
+	WED;
+	THU;
+	FRI;
+	SAT;
+	SUN;
+}
+
+abstract class Person {
+  attr String name;
+  attr String affiliation;
+}
+
+class PCMember extends Person{
+
+
+	
+}
+
+class Speaker extends Person{
+	
+	
+}
+
