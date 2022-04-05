@@ -9,7 +9,7 @@ attr String date;
 
   val Person[*] participants;
   val Agenda[1] agenda;
-  
+  val Submission[*] submissions;
 }
 
 class Agenda{
@@ -18,7 +18,14 @@ class Agenda{
 
 class Day{
 	attr DayType name;
-	
+	val Session[*] sessions;
+}
+
+class Session{
+	attr String start;
+	attr String end;
+	ref Submission[*] talks;
+	attr String title;
 }
 
 enum DayType{
@@ -37,13 +44,20 @@ abstract class Person {
 }
 
 class PCMember extends Person{
-
-
+ref Submission[*]#reviewers assignedReviews;
 	
 }
 
 class Speaker extends Person{
+
 	
+}
+
+class Submission{
+attr String name;
+	attr String title;
+	attr boolean accepted;
+	ref PCMember[*]#assignedReviews reviewers;
 	
 }
 
