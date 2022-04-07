@@ -45,12 +45,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignedReviews" upperBound="-1"
         eType="#//Submission" eOpposite="#//Submission/reviewers"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Speaker" eSuperTypes="#//Person"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Speaker" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="submissions" upperBound="-1"
+        eType="#//Submission" eOpposite="#//Submission/speaker"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Submission">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="accepted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reviewers" upperBound="-1"
         eType="#//PCMember" eOpposite="#//PCMember/assignedReviews"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="speaker" lowerBound="1"
+        eType="#//Speaker" eOpposite="#//Speaker/submissions"/>
   </eClassifiers>
 </ecore:EPackage>

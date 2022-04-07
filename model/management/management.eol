@@ -1,0 +1,3 @@
+var myconference = conferencemodel!Conference.all.first;
+
+myconference.submissions.println();
