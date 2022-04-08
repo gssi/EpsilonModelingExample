@@ -48,10 +48,13 @@ ref Submission[*]#reviewers assignedReviews;
 	
 }
 
-class Speaker extends Person{
-ref Submission[*]#speaker submissions;
+class Author extends Person{
+	ref Submission[*]#authors submissions;
+}
 
-	
+class Speaker extends Author{
+ref Submission[*] talk;
+
 }
 
 class Submission{
@@ -59,7 +62,8 @@ attr String name;
 	attr String title;
 	attr boolean accepted;
 	ref PCMember[*]#assignedReviews reviewers;
-	ref Speaker[1]#submissions speaker;
+	ref Speaker[1] speaker;
+	ref Author[*]#submissions authors;
 	
 }
 

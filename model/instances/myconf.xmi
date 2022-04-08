@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Conference xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="conference" name="ICMT" venue="London">
+  <participants xsi:type="PCMember" name="Reviewer#1" assignedReviews="//@submissions.0"/>
+  <participants xsi:type="PCMember" name="Reviewer#2" assignedReviews="//@submissions.0"/>
+  <participants xsi:type="PCMember" name="Reviewer#3" assignedReviews="//@submissions.0"/>
+  <participants xsi:type="PCMember" name="Reviewer#4" assignedReviews="//@submissions.0"/>
+  <participants xsi:type="Author" name="pippo" submissions="//@submissions.0"/>
+  <participants xsi:type="Author" name="Pluto" submissions="//@submissions.0"/>
+  <participants xsi:type="Speaker" name="ludovico" submissions="//@submissions.0"/>
+  <agenda>
+    <days/>
+  </agenda>
+  <submissions name="my new paper" reviewers="//@participants.0 //@participants.1 //@participants.2 //@participants.3" speaker="//@participants.6" authors="//@participants.4 //@participants.5 //@participants.6"/>
+</Conference>

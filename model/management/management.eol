@@ -1,5 +1,71 @@
-var myconference = conferencemodel!Conference.all.first;
+//create the conference
+var myconference = new Conference;
+myconference.name="ICMT";
+myconference.venue="London";
+
+
+//create some pc members
+var reviewers : Sequence = new Sequence;
+
+var i = 1;
+while ( i<5) { 
+var reviewer = new PCMember;
+reviewer.name="Reviewer#"+i;
+reviewers.add(reviewer);
+i++;	
+}
+
+myconference.participants.addAll(reviewers);
 
 
 
-myconference.submissions.println();
+var newsub = new Submission;
+newsub.name="my new paper";
+
+var pluto = new Author;
+pluto.name= "Pluto";
+
+
+var pippo = new Author;
+pippo.name = "pippo";
+
+var ludo = new Speaker;
+ludo.name= "ludovico";
+
+var authors = new Sequence();
+authors.add(pippo);
+authors.add(pluto);
+authors.add(ludo);
+
+myconference.participants.addAll(authors);
+
+newsub.authors.addAll(authors);
+
+
+
+if(newsub.authors.select(a|a.isKindOf(Speaker)).size>0){
+	newsub.speaker=newsub.authors.selectOne(a|a.isKindOf(Speaker));
+}
+
+newsub.reviewers.addAll(myconference.participants.select(p|p.isKindOf(PCMember)));
+
+myconference.submissions.add(newsub);
+
+var agenda = new  Agenda;
+myconference.agenda=agenda;
+
+var mon= new Day;
+mon.name=DayType#MON;
+agenda.days.add(mon);
+//print the submissions
+myconference.submissions.name.println();
+
+"List of the submissions: ".println();
+
+for (sub in myconference.submissions) { 
+	sub.name.println();
+}
+
+
+
+
