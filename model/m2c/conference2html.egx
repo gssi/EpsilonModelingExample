@@ -1,0 +1,8 @@
+rule Conf2HTML
+  transform conf : Conference { // For every WP in the model ...
+  
+  // run this EGL template (previous slide) ...
+  template : "conference2html.egl"
+  // and produce this HTML file
+  target : "generated/"+conf.name + ".html" 
+}

@@ -1,0 +1,54 @@
+pre {
+//"do something else before the begin of the script".println();
+}
+
+context Conference{
+
+	constraint validConference{
+	
+		check: self.name.isDefined() and self.venue.isDefined() and self.submissions.size > 1
+
+	
+	message: "We can't run a conference without details or with a low number of submissions"
+	fix{
+		title:"Fix the conference"
+	do{
+		var sub= new Submission;
+			sub.name="My fake publication";
+		
+			self.submissions.add(sub);
+			}
+		}
+	}
+}
+
+context Session{
+
+	constraint paperAccepted{
+		
+		check: self.talks.forAll(talk|talk.accepted)
+		message: "The session includes paper not accepted"
+	}
+}
+
+context Submission{
+
+	constraint noConflicts{
+	check: self.authors.forAll(a|self.reviewers.name.excludes(a.name))
+	message: "Reviewers include one of the authors"
+	fix{
+		title:"Remove the reviewer"
+		do{
+			var toberemoved=self.reviewers.select(r|self.authors.name.includes(r.name));
+			
+			self.reviewers=self.reviewers.excludingAll(toberemoved);
+			}
+		}
+	}
+}
+
+
+post{
+
+//"do something else before the end of the script".println();
+}

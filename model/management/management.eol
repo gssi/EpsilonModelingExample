@@ -57,14 +57,14 @@ myconference.agenda=agenda;
 var mon= new Day;
 mon.name=DayType#MON;
 agenda.days.add(mon);
-//print the submissions
-myconference.submissions.name.println();
 
-"List of the submissions: ".println();
+var s= new Session;
+s.start="8:00";
+s.end="12:00";
+s.title ="Databases";
+s.talks.add(newsub);
 
-for (sub in myconference.submissions) { 
-	sub.name.println();
-}
+mon.sessions.add(s);
 
 
 
