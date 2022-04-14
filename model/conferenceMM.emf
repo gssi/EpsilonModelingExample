@@ -6,6 +6,7 @@ class Conference {
 attr String name;
 attr String venue;
 attr String date;
+attr String descr;
 
   val Person[*] participants;
   val Agenda[1] agenda;
